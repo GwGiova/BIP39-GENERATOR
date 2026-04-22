@@ -59,12 +59,11 @@ while entropy != 128 and entropy != 256:
 number = secrets.randbits(entropy)
 
 #Convert the Number from INT to BYTES
-numberBYTESformat = number.to_bytes(entropy, "big")
+numberBYTESformat = number.to_bytes(entropy // 8, "big")
 
 checksum = calculateChecksum(numberBYTESformat, entropy)
 
-#I use [2:] to remove the initial '0b' added by the bin() function
-numberStringBINformat = bin(number)[2:]
+numberStringBINformat = format(number, f"0{entropy}b")
 
 #The final string is the result of the number binary representation + checksum
 finalString = numberStringBINformat + checksum
