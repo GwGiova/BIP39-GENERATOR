@@ -3,8 +3,6 @@ import secrets
 
 import hashlib
 
-import from_ASCII_To_Bits
-
 import words
 
 def calculateChecksum(NB, ENT):
